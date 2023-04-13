@@ -3,7 +3,7 @@
   This is a console app that is used to show information from a database of employee
   ## Table of Contents
   - [Installation](#installation)
-  - [Usage)(#usage)
+  - [Usage](#usage)
   - [Features](#features)
   - [Contributing](#contributing) 
   - [License](#license)
