@@ -72,7 +72,6 @@ function addEmployee() {
                 console.log(err)
             }
             console.table(rows)
-            viewEmployees()
             console.log(answer.first_name + ' ' + answer.last_name + ' has been added to the database')
 
             menuQuestions()
@@ -106,7 +105,6 @@ function addRoles() {
                 console.log(err)
             }
             console.table(rows)
-            viewRoles()
             console.log(answer.title + ' has been added to the database')
             menuQuestions()
         })
@@ -126,7 +124,6 @@ function addDepartment() {
 
         db.query(`INSERT INTO departments(dept_name) VALUES (?)`, [dept_name], (err, rows) => {
             console.table(rows)
-            viewDepartments()
             console.log(answer.dept_name + ' has been added to the database')
             menuQuestions()
         })
@@ -154,8 +151,6 @@ function updateEmployeeRole() {
                 console.log(err)
             }
             console.table(rows)
-
-            viewEmployees()
             console.log('Employee role has been updated')
             menuQuestions()
         })
@@ -182,8 +177,6 @@ function updateEmployeeManager() {
                 console.log(err)
             }
             console.table(rows)
-
-            viewEmployees()
             console.log('Employee manager has been updated')
             menuQuestions()
         })
@@ -205,7 +198,6 @@ function deleteEmployee() {
                 console.log(err)
             }
             console.table(rows)
-            viewEmployees()
             console.log('Employee has been deleted')
             menuQuestions()
         })
@@ -226,7 +218,6 @@ function deleteRole() {
                 console.log(err)
             }
             console.table(rows)
-            viewRoles()
             console.log('Role has been deleted')
             menuQuestions()
         })
@@ -243,12 +234,11 @@ function deleteDepartment() {
     ]).then((answer) => {
         const { id } = answer
 
-        db.query(`DELETE FROM department WHERE id = ?`, [id], (err, rows) => {
+        db.query(`DELETE FROM departments WHERE id = ?`, [id], (err, rows) => {
             if (err) {
                 console.log(err)
             }
             console.table(rows)
-            viewDepartments()
             console.log('Department has been deleted')
             menuQuestions()
         })
